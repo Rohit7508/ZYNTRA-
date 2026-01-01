@@ -12,12 +12,6 @@
       box-sizing: border-box;
     }
    
-@media (max-width: 1024px) {
-  .cards {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
 
 @media (max-width: 768px) {
 
@@ -118,13 +112,25 @@
     color: #ccc;
     }
 
+    @media (max-width: 1024px) {
+.cards {
+grid-template-columns: repeat(2, 1fr);
+}
+}
+@media (max-width: 768px) {
+.cards {
+grid-template-columns: 1fr;
+padding: 16px;
+}
+}
+
 .cards {
 display: grid;
 grid-template-columns: repeat(3, minmax(0, 1fr));
 gap: 22px;
 max-width: 1200px;
-padding: 20px;
 margin: auto;
+padding: 20px;
 }
 
 .card {
