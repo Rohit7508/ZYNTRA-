@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZYNTRA – Apps</title>
+</head>
+<body class="bg-1">
+    <style>
+
+    .bg-1 {
+    background: radial-gradient(circle at top, #0f172a, #020617);
+    color: #fff;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+    
+    .navbar {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1017254d;
+    backdrop-filter: blur(10px);
+    font-family: Arial, Helvetica, sans-serif;
+    }
+    .logo {
+    font-size: 24px;
+    font-weight: bold;
+    
+}
+.search-bar {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    background: transparent;
+    border: 2px solid #5c5353;
+    color: #fff;
+
+}   
+.search-bar:active{
+    outline: none;
+    border-color: #888;
+    border: 2px solid #ff0000;
+}
+    .search-bar::placeholder {
+    color: #ccc;
+    }
+    .cards {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    }
+  
+.card {
+    background-color: rgba(13, 19, 32, 0.089);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    padding: 20px;
+    text-align: center;
+
+    width: 100%;
+    backdrop-filter: blur(30px);
+
+    transition: transform 0.4s ease, background-color 0.4s ease;
+}
+
+    .card:hover {
+    transform: translateY(-6px);
+    transition: 0.8s ease;
+    background-color: #000000c0;
+    transition: background-color 0.9s ease;
+        }
+        .card img {
+    border-radius: 12px;
+    margin-bottom: 15px;
+        }
+      
+        
+
+    .card h3 {
+    color: #fff;
+    }
+    .card p {
+    color: #bababa;
+    }
+    .btn.primary button {
+    background-color: #17821b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+    .btn.primary button:hover {
+    background-color: #45a049;
+    }
+    dialog {
+  border: none;
+  border-radius: 18px;
+  padding: 28px 30px;
+  max-width: 420px;
+  width: 90%;
+  background: linear-gradient(
+    145deg,
+    rgba(15, 23, 42, 0.95),
+    rgba(2, 6, 23, 0.95)
+  );
+  color: #e5e7eb;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.7),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  animation: dialogOpen 0.45s ease forwards;
+}
+
+dialog::backdrop {
+  background: rgba(2, 6, 23, 0.75);
+  backdrop-filter: blur(6px);
+}
+
+dialog h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #38bdf8, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+dialog p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 5px 0;
+  color: #cbd5f5;
+}
+
+dialog p strong {
+  color: #fff;
+}
+
+dialog p:last-of-type {
+  margin-top: 12px;
+}
+
+dialog button {
+  margin-top: 22px;
+  padding: 10px 22px;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #020617;
+  background: linear-gradient(135deg, #38bdf8, #22d3ee);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+dialog button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.45);
+}
+
+dialog button:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 16px rgba(56, 189, 248, 0.35);
+}
+
+@keyframes dialogOpen {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+    .see-more {
+        border: none;
+        background: transparent;
+        font-size: 18px;
+        color: #00acee;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+    .see-more:active {
+        outline: none;
+        border-color: #888;
+        color: #ff0000;
+    }
+
+    </style>
+
+<header class="navbar">
+  <div class="logo">ZYNTRA</div>
+  <div class="nav-right">
+ <input type="text" placeholder="Search apps..." class="search-bar">
+  </div>
+</header>
+
+<section>
+    <div class="cards">
+        <div class="card">
+            <img src="traficrider.webp" width="100px" height="100px" alt="App 1">
+            <h3>Trafic rider</h3>
+            <p>Unlimited coins, Tokens All Bikes Unlocked Free.</p>
+            <dialog id="dialog">
+                <h2> 
+                    <h3>Trafic rider</h3>
+                    <p>Version: 1.0.0</p>
+                    <p>Size: 200MB</p>
+                    <p>Developer:.</p>
+                    <p>Traffic Rider (Unlimited Coins & All Bikes Unlocked) is an enhanced version of the popular high-speed racing game where you can ride the best bikes without limits. Enjoy unlimited coins and tokens, unlock all bikes from the start, perform thrilling stunts, and race through traffic at high speeds with realistic 3D graphics and intense gameplay — perfect for every bike racing fan! 🏍️🔥</p>
+                    <button onclick="dialog.close()" >Close</button>
+                </h2>
+            </dialog>
+            <button class="see-more" onclick="dialog.showModal()">see more</button>
+            <a href="https://www.mediafire.com/file/bz3bzfxrbos7orx/traffic_rider_mod_2.0_ridertraffic.com.apk/file" download class="btn primary">
+            <button>Download</button>
+            </a>
+        </div>
+         <div class="card">
+            <img src="hillclimb.png" width="100px" height="100px" alt="App 1">
+            <h3>Hill Climb racing </h3>
+            <p>Hill Climb Racing — Unlimited Coins & All Vehicles Unlocked</p>
+            <dialog id="dialoges">
+                <h2> 
+                    <h3>Hill Climb racing </h3>
+                     <p><strong>Version:</strong> 1.7.9</p>
+                     <p><strong>Size:</strong> 122MB</p>
+                      <p><strong>Developer:</strong> </p>
+                      <p>Hill Climb Racing (Unlimited Coins & All Vehicles Unlocked) is the ultimate physics-based driving adventure where you can conquer hills without limits! Get unlimited coins and tokens from the start, unlock all vehicles and upgrades instantly, and master challenging terrain with smooth controls and fun graphics. Perfect for racers who want endless uphill action and thrill! 🏎️⛰️💨</p>
+                    <button onclick="dialoges.close()" >Close</button>
+                </h2>
+            </dialog>
+            <button class="see-more" onclick="dialoges.showModal()">see more</button>
+            <a href="https://www.mediafire.com/file/7lkqhj48ea719dh/Hill_Climb_Racing_1.66.2_%25281%2529.apk/file" download class="btn primary">
+            <button>Download</button>
+            </a>
+        </div>
+          <div class="card">
+            <img src="gta5.webp" width="100px" height="100px" alt="App 1">
+            <h3>GTA 5 Lite</h3>
+            <p>Premium Unlocked- Watch Anything without add.</p>
+            <dialog id="dialogess">
+                <h2> 
+                    <h3>GTA 5 Lite</h3>
+                     <p><strong>Version:</strong> 1.7.9</p>
+                     <p><strong>Size:</strong> 100 MB</p>
+                       <p><strong>Developer:</strong></p>
+                      <p>High Quality For Android Feels Like playing real gta 5. </p>
+                    <button onclick="dialogess.close()" >Close</button>
+                </h2>
+            </dialog>
+            <button class="see-more" onclick="dialogess.showModal()">see more</button>
+            <a href="https://www.mediafire.com/file/b3v69pnhdtxpizi/gta5.zip/file" download class="btn primary">
+            <button>Download</button>
+            </a>
+        </div>
+          <div class="card">
+            <img src="granny.webp" width="100px" height="100px" alt="App 1">
+            <h3>Granny Mod Apk</h3>
+            <p>Granny Game Apk file esp Mod Direct download Letest Version.</p>
+            <dialog id="dialoges2">
+                <h2> 
+                    <h3>Granny Mod Esp </h3>
+                     <p><strong>Version:</strong> 1.7.9</p>
+                     <p><strong>Size:</strong> 220 MB</p>
+                       <p><strong>Developer:</strong> Git Hub.</p>
+                      <p>Granny (Unlimited Items & All Levels Unlocked) is a thrilling horror escape game where you must outsmart the eerie Granny and escape her creepy house. With unlimited items and all levels unlocked from the start, explore hidden rooms, solve puzzles, avoid traps, and survive the terrifying chase. Perfect for fans of suspense and adrenaline! 👻🏠🗝️</p>
+                    <button onclick="dialogess.close()" >Close</button>
+                </h2>
+            </dialog>
+            <button class="see-more" onclick="dialogess.showModal()">see more</button>
+            <a href="https://www.mediafire.com/file/378n5823x1j4m5m/Granny1%2528CiberMod%2529.apk/file" download class="btn primary">
+            <button>Download</button>
+            </a>
+        </div>
+          <div class="card">
+            <img src="subway.webp" width="100px" height="100px" alt="App 1">
+            <h3>Subway Surfers</h3>
+            <p>Subway Surfers — God Mode | Unlimited Coins, Keys & All Characters</p>
+            <dialog id="dialoges1">
+                <h2> 
+                    <h3>Subway Surfers</h3>
+                     <p><strong>Version:</strong> 1.7.9</p>
+                     <p><strong>Size:</strong> 149 MB</p>
+                       <p><strong>Developer:</strong> Git Hub.</p>
+                      <p>Subway Surfers (God Mode) gives you the ultimate endless running experience with unlimited coins, keys, hoverboards, and all characters unlocked. Enjoy easy gameplay with god features enabled, smooth controls, colorful graphics, and nonstop fun as you dash through trains without limits. Perfect for players who want stress-free, high-speed action! 🚆🔥🏃‍♂️</p>
+                    <button onclick="dialoges1.close()" >Close</button>
+                </h2>
+            </dialog>
+            <button class="see-more" onclick="dialoges1.showModal()">see more</button>
+            <a href="https://download1510.mediafire.com/25o0o5zczk4gDlGWUIDuiERtiPmPK1GrDECYPDUtD0bmbKKkTyYViC6WyiW_Ybzq3EYcaQRTWbsR5mSyANqgKMuSywnu18Oqe3ptIG0dtK_HIrL72YH1AyxND1nKYFHFe2ufaiuqDpbqqoXEYaSApEtdXYA9lc5DviTq3YnpF6DKEw/m8jty20duphpvy0/subway-surfers-3-42-3_.apk" download class="btn primary">
+            <button>Download</button>
+            </a>
+        </div>
+
+        
+
+
+    </div>
+</section>
+</body>
+</html>
