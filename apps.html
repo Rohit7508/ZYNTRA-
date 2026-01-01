@@ -1,261 +1,437 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZYNTRA – Apps</title>
-
-<style>
-body{
-margin:0;
-font-family:Arial,Helvetica,sans-serif;
-background:radial-gradient(circle at top,#0f172a,#020617);
-color:#fff;
-min-height:100vh;
-}
-
-.navbar{
-padding:16px 20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:#1017254d;
-backdrop-filter:blur(10px);
-}
-
-.logo{
-font-size:24px;
-font-weight:bold;
-}
-
-.search-bar{
-padding:8px 12px;
-border-radius:6px;
-border:2px solid #5c5353;
-background:transparent;
-color:#fff;
-font-size:15px;
-width:220px;
-}
-
-.cards{
-display:flex;
-flex-direction:column;
-gap:14px;
-padding:20px;
-max-width:900px;
-margin:auto;
-}
-
-.card{
-display:flex;
-align-items:center;
-gap:16px;
-background:rgba(13,19,32,0.35);
-border-radius:14px;
-padding:14px 18px;
-backdrop-filter:blur(18px);
-transition:transform .3s ease,background .3s ease;
-}
-
-.card:hover{
-transform:translateY(-3px);
-background:#000000c0;
-}
-
-.card img{
-width:80px;
-height:80px;
-border-radius:16px;
-flex-shrink:0;
-}
-
-.card-content{
-flex:1;
-}
-
-.card h3{
-margin:0;
-font-size:18px;
-}
-
-.card p{
-margin:4px 0 0;
-font-size:14px;
-color:#bababa;
-}
-
-.card-actions{
-display:flex;
-flex-direction:column;
-gap:8px;
-}
-
-.see-more{
-background:transparent;
-border:none;
-color:#38bdf8;
-cursor:pointer;
-font-size:14px;
-text-align:left;
-padding:0;
-}
-
-.btn.primary button{
-background:#16a34a;
-color:#fff;
-border:none;
-padding:8px 14px;
-border-radius:8px;
-cursor:pointer;
-font-size:14px;
-}
-
-.btn.primary button:hover{
-background:#22c55e;
-}
-
-dialog{
-border:none;
-border-radius:16px;
-padding:22px;
-max-width:420px;
-width:90%;
-background:linear-gradient(145deg,rgba(15,23,42,.95),rgba(2,6,23,.95));
-color:#e5e7eb;
-}
-
-dialog::backdrop{
-background:rgba(2,6,23,.75);
-}
-
-dialog h3{
-margin-top:0;
-font-size:22px;
-background:linear-gradient(90deg,#38bdf8,#22d3ee);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-dialog p{
-font-size:14px;
-line-height:1.6;
-color:#cbd5f5;
-}
-
-dialog button{
-margin-top:14px;
-padding:8px 18px;
-border-radius:10px;
-border:none;
-background:linear-gradient(135deg,#38bdf8,#22d3ee);
-cursor:pointer;
-font-weight:bold;
-}
-
-@media(max-width:600px){
-.card{
-flex-direction:column;
-align-items:flex-start;
-}
-.card img{
-width:70px;
-height:70px;
-}
-.card-actions{
-width:100%;
-flex-direction:row;
-justify-content:space-between;
-align-items:center;
-}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZYNTRA – Apps</title>
 </head>
+<body class="bg-1">
+    <style>
+    
+    *{
+      box-sizing: border-box;
+    }
+   
+@media (max-width: 1024px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 
-<body>
+
+@media (max-width: 768px) {
+
+  .navbar {
+    flex-direction: column;
+    gap: 12px;
+    padding: 15px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  .search-bar {
+    width: 100%;
+    max-width: 320px;
+  }
+
+
+  .card {
+    padding: 15px;
+  }
+
+  .card img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .card h3 {
+    font-size: 16px;
+  }
+
+  .card p {
+    font-size: 13px;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .see-more {
+    font-size: 16px;
+  }
+
+  .btn.primary button {
+    width: 100%;
+  }
+}
+
+
+    .bg-1 {
+    background: radial-gradient(circle at top, #0f172a, #020617);
+    color: #fff;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+    
+    .navbar {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1017254d;
+    backdrop-filter: blur(10px);
+    font-family: Arial, Helvetica, sans-serif;
+    }
+    .logo {
+    font-size: 24px;
+    font-weight: bold;
+    
+}
+.search-bar {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    background: transparent;
+    border: 2px solid #5c5353;
+    color: #fff;
+
+}   
+.search-bar:active{
+    outline: none;
+    border-color: #888;
+    border: 2px solid #ff0000;
+}
+    .search-bar::placeholder {
+    color: #ccc;
+    }
+
+.cards {
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 22px;
+max-width: 1200px;
+padding: 20px;
+margin: auto;
+}
+
+.card {
+    background-color: rgba(13, 19, 32, 0.089);
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    backdrop-filter: blur(30px);
+    overflow: hidden;
+    transition: transform 0.4s ease, background-color 0.4s ease;
+}
+
+    .card:hover {
+    transform: translateY(-6px);
+    transition: 0.8s ease;
+    background-color: #000000c0;
+    transition: background-color 0.9s ease;
+        }
+        .card img {
+    border-radius: 12px;
+    margin-bottom: 15px;
+        }
+      
+        
+
+    .card h3 {
+    color: #fff;
+    }
+    .card p {
+    color: #bababa;
+    }
+    .btn.primary button {
+    background-color: #17821b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+    .btn.primary button:hover {
+    background-color: #45a049;
+    }
+    dialog {
+  border: none;
+  border-radius: 18px;
+  padding: 28px 30px;
+  max-width: 420px;
+  width: 90%;
+  background: linear-gradient(
+    145deg,
+    rgba(15, 23, 42, 0.95),
+    rgba(2, 6, 23, 0.95)
+  );
+  color: #e5e7eb;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.7),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  animation: dialogOpen 0.45s ease forwards;
+}
+
+dialog::backdrop {
+  background: rgba(2, 6, 23, 0.75);
+  backdrop-filter: blur(6px);
+}
+
+dialog h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #38bdf8, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+dialog p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 5px 0;
+  color: #cbd5f5;
+}
+
+dialog p strong {
+  color: #fff;
+}
+
+dialog p:last-of-type {
+  margin-top: 12px;
+}
+
+dialog button {
+  margin-top: 22px;
+  padding: 10px 22px;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #020617;
+  background: linear-gradient(135deg, #38bdf8, #22d3ee);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+dialog button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.45);
+}
+
+dialog button:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 16px rgba(56, 189, 248, 0.35);
+}
+
+@keyframes dialogOpen {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+    .see-more {
+        border: none;
+        background: transparent;
+        font-size: 18px;
+        color: #00acee;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+    .see-more:active {
+        outline: none;
+        border-color: #888;
+        color: #ff0000;
+    }
+
+    </style>
 
 <header class="navbar">
-<div class="logo">ZYNTRA</div>
-<input type="text" class="search-bar" placeholder="Search apps...">
+  <div class="logo">ZYNTRA</div>
+  <div class="nav-right">
+ <input type="text" placeholder="Search apps..." class="search-bar">
+  </div>
 </header>
 
 <section>
-<div class="cards">
+    <div class="cards">
+        <div class="card">
+            <img src="pickshow1.png" width="100px" height="100px" alt="App 1">
+            <h3>PickShow</h3>
+            <p>Watch movies and TV shows online.</p>
+            <dialog id="dialog">
+                <h2> 
+                    <h3>PickShow</h3>
+                    <p>Version: 1.0.0</p>
+                    <p>Size: 16.9MB</p>
+                    <p>Developer: PickShow Inc.</p>
+                    <p>Description: PickShow is your go-to app for streaming the latest movies and TV shows. Enjoy a vast library of content with high-quality video and an easy-to-use interface.</p>
+                    <button onclick="dialog.close()" >Close</button>
+                </h2>
+            </dialog>
+            <button class="see-more" onclick="dialog.showModal()">see more</button>
+            <a href="https://www.mediafire.com/file/4odb7wjk4v055xx/pickashow.apk/file" download class="btn primary">
+            <button>Download</button>
+            </a>
+        </div>
+         <div class="card">
+            <img src="doolflix1.png" width="100px" height="100px" alt="App 1">
+            <h3>Doolflix</h3>
+            <p>Watch movies and TV shows online.</p>
+            <dialog id="dialoges">
+                <h2> 
+                    <h3>Doolflix</h3>
+                     <p><strong>Version:</strong> 1.7.9</p>
+                     <p><strong>Size:</strong> 41.2MB</p>
+                       <p><strong>Developer:</strong> Doolflix Inc.</p>
+                      <p>Description: Doolflix lets you stream the latest movies and TV shows in high quality. Enjoy a huge library of content with an easy-to-use interface and fast streaming.</p>
+                    <button onclick="dialoges.close()" >Close</button>
+                </h2>
+            </dialog>
+            <button class="see-more" onclick="dialoges.showModal()">see more</button>
+            <a href="https://www.mediafire.com/file/ltthc857u2m5won/DooFlix_v9.4.apk/file" download class="btn primary">
+            <button>Download</button>
+            </a>
+        </div>
+          <div class="card">
+            <img src="youtube.svg" width="100px" height="100px" alt="App 1">
+            <h3>YouTube Vanced</h3>
+            <p>Premium Unlocked- Watch Anything without add.</p>
+            <dialog id="dialogess">
+                <h2> 
+                    <h3>YouTube Vanced</h3>
+                     <p><strong>Version:</strong> 1.7.9</p>
+                     <p><strong>Size:</strong> 149 MB</p>
+                       <p><strong>Developer:</strong> Git Hub.</p>
+                      <p>Description: Doolflix lets you stream the latest movies and TV shows in high quality. Enjoy a huge library of content with an easy-to-use interface and fast streaming.</p>
+                    <button onclick="dialogess.close()" >Close</button>
+                </h2>
+            </dialog>
+            <button class="see-more" onclick="dialogess.showModal()">see more</button>
+            <a href="https://www.mediafire.com/file/j6f3cz65lk7nrgk/vanced.zip/file" download class="btn primary">
+            <button>Download</button>
+            </a>
+        </div>
+          <div class="card">
+            <img src="spotify.png" width="100px" height="100px" alt="App 1">
+            <h3>Spotify vanced</h3>
+            <p>Premium Unlocked-Listen anything Without add.</p>
+            <dialog id="dialoges2">
+                <h2> 
+                    <h3>Spotify Vanced</h3>
+                     <p><strong>Version:</strong> 1.7.9</p>
+                     <p><strong>Size:</strong> 122 MB</p>
+                       <p><strong>Developer:</strong> Git Hub.</p>
+                      <p>Spotify Premium (Free/Unlocked) is an enhanced version of the popular music streaming app that gives you unlimited access to millions of songs, playlists, podcasts, and artists — all without ads. Enjoy offline listening, high-quality audio, and all premium features unlocked for free, perfect for music lovers who want the best listening experience on the go.</p>
+                    <button onclick="dialogess.close()" >Close</button>
+                </h2>
+            </dialog>
+            <button class="see-more" onclick="dialogess.showModal()">see more</button>
+            <a href="https://www.mediafire.com/file/110brys5kmwwh07/spotify.apk/file" download class="btn primary">
+            <button>Download</button>
+            </a>
+        </div>
+          <div class="card">
+            <img src="Alight-Motion-App-Icon-Motion-Graphics-Editing-Logo.png" width="100px" height="100px" alt="App 1">
+            <h3>Alight Motion</h3>
+            <p>Premium Unlocked- Edit 4k quality F</p>
+            <dialog id="dialoges1">
+                <h2> 
+                    <h3>YouTube Vanced</h3>
+                     <p><strong>Version:</strong> 1.7.9</p>
+                     <p><strong>Size:</strong> 149 MB</p>
+                       <p><strong>Developer:</strong> Git Hub.</p>
+                      <p>Alight Motion Premium (Free) is a powerful video and animation editing app that lets you create professional-quality motion graphics and visual effects on your phone. With premium features unlocked for free, you get access to advanced tools like keyframe animation, multi-layer editing, blending modes, custom fonts, and high-resolution export — perfect for TikTok, YouTube & content creators.</p>
+                    <button onclick="dialoges1.close()" >Close</button>
+                </h2>
+            </dialog>
+            <button class="see-more" onclick="dialoges1.showModal()">see more</button>
+            <a href="https://www.mediafire.com/file/c4el4kd5wcfen1f/alightmotion.apk/file" download class="btn primary">
+            <button>Download</button>
+            </a>
+        </div>
 
-<div class="card">
-<img src="pickshow1.png">
-<div class="card-content">
-<h3>PickShow</h3>
-<p>Watch movies and TV shows online</p>
-</div>
-<div class="card-actions">
-<button class="see-more" onclick="d1.showModal()">see more</button>
-<a class="btn primary" href="https://www.mediafire.com/file/4odb7wjk4v055xx/pickashow.apk/file"><button>Download</button></a>
-</div>
-<dialog id="d1">
-<h3>PickShow</h3>
-<p>Version: 1.0.0</p>
-<p>Size: 16.9MB</p>
-<p>Developer: PickShow Inc.</p>
-<button onclick="d1.close()">Close</button>
-</dialog>
-</div>
+          <div class="card">
+            <img src="kinmaster.webp" width="100px" height="100px" alt="App 1">
+            <h3>kinmaster</h3>
+            <p>KineMaster — Premium Unlocked | No Watermark Free Download</p>
+            <dialog id="dialoges5">
+                <h2> 
+                    <h3>KineMaster</h3>
+                     <p><strong>Version:</strong> 1.7.9</p>
+                     <p><strong>Size:</strong> 149 MB</p>
+                       <p><strong>Developer:</strong> Git Hub.</p>
+                      <p>KineMaster (Premium Unlocked) is a powerful video editing app that lets you create professional-quality videos without any watermark. Enjoy all premium features for free, including multi-layer editing, advanced effects, transitions, keyframe animation, chroma key (green screen), and high-resolution export. Perfect for YouTubers, reels creators, and video editors who want full control and premium results. 🎬✨<p>
+                    <button onclick="dialoges5.close()" >Close</button>
+                </h2>
+            </dialog>
+            <button class="see-more" onclick="dialoges5.showModal()">see more</button>
+            <a href="https://www.mediafire.com/file/jbf0ac235mihnxi/KineMaster-v8.0.9.35926.GP-MOD-OTR-(Getmodsapk.com).apk/file" download class="btn primary">
+            <button>Download</button>
+            </a>
+        </div>
 
-<div class="card">
-<img src="doolflix1.png">
-<div class="card-content">
-<h3>Doolflix</h3>
-<p>Stream latest movies and shows</p>
-</div>
-<div class="card-actions">
-<button class="see-more" onclick="d2.showModal()">see more</button>
-<a class="btn primary" href="https://www.mediafire.com/file/ltthc857u2m5won/DooFlix_v9.4.apk/file"><button>Download</button></a>
-</div>
-<dialog id="d2">
-<h3>Doolflix</h3>
-<p>Version: 1.7.9</p>
-<p>Size: 41.2MB</p>
-<p>Developer: Doolflix Inc.</p>
-<button onclick="d2.close()">Close</button>
-</dialog>
-</div>
-
-<div class="card">
-<img src="spotify.png">
-<div class="card-content">
-<h3>Spotify Vanced</h3>
-<p>Premium unlocked music</p>
-</div>
-<div class="card-actions">
-<button class="see-more" onclick="d3.showModal()">see more</button>
-<a class="btn primary" href="https://www.mediafire.com/file/110brys5kmwwh07/spotify.apk/file"><button>Download</button></a>
-</div>
-<dialog id="d3">
-<h3>Spotify Vanced</h3>
-<p>Ad-free premium music streaming</p>
-<button onclick="d3.close()">Close</button>
-</dialog>
-</div>
-
-<div class="card">
-<img src="capcut.avif">
-<div class="card-content">
-<h3>CapCut Pro</h3>
-<p>Video editing without watermark</p>
-</div>
-<div class="card-actions">
-<button class="see-more" onclick="d4.showModal()">see more</button>
-<a class="btn primary" href="#"><button>Download</button></a>
-</div>
-<dialog id="d4">
-<h3>CapCut Pro</h3>
-<p>Professional editing tools unlocked</p>
-<button onclick="d4.close()">Close</button>
-</dialog>
-</div>
-
-</div>
+           <div class="card">
+            <img src="capcut.avif" width="100px" height="100px" alt="App 1">
+            <h3>CAPCUT Pro</h3>
+            <p>CapCut — Premium Unlocked | Free APK No Watermark</p>
+            <dialog id="dialoges6">
+                <h2> 
+                    <h3>CapCut pro</h3>
+                     <p><strong>Version:</strong> 1.7.9</p>
+                     <p><strong>Size:</strong> 149 MB</p>
+                       <p><strong>Developer:</strong> Git Hub.</p>
+                      <p>CapCut (Premium Unlocked) is an all-in-one video editing app that helps you create stunning videos easily on your phone. Enjoy premium features for free, including no watermark, advanced effects, smooth transitions, auto captions, filters, and high-quality export. Perfect for Instagram Reels, YouTube Shorts, and TikTok creators who want professional edits in minutes. 🎥✨<p>
+                    <button onclick="dialoges6.close()" >Close</button>
+                </h2>
+            </dialog>
+            <button class="see-more" onclick="dialoges6.showModal()">see more</button>
+            <a href="" download class="btn primary">
+            <button>Download</button>
+            </a>
+        </div>
+          <div class="card">
+            <img src="picsart.webp" width="100px" height="100px" alt="App 1">
+            <h3>PicsArt</h3>
+            <p>picsart — Premium Unlocked | Free APK No Watermark</p>
+            <dialog id="dialoges7">
+                <h2> 
+                    <h3>PicsArt</h3>
+                     <p><strong>Version:</strong> 1.7.9</p>
+                     <p><strong>Size:</strong> 149 MB</p>
+                       <p><strong>Developer:</strong> Git Hub.</p>
+                      <p>Picsart (Premium Unlocked) is an all-in-one video editing app that helps you create stunning videos easily on your phone. Enjoy premium features for free, including no watermark, advanced effects, smooth transitions, auto captions, filters, and high-quality export. Perfect for Instagram Reels, YouTube Shorts, and TikTok creators who want professional edits in minutes. 🎥✨<p>
+                    <button onclick="dialoges7.close()" >Close</button>
+                </h2>
+            </dialog>
+            <button class="see-more" onclick="dialoges7.showModal()">see more</button>
+            <a href="https://www.mediafire.com/file/sb0yeggma52za33/Picsart_29.1.4_1767028410_latestmodapks.com.apk/file" download class="btn primary">
+            <button>Download</button>
+            </a>
+        </div>
+    
+    </div>
 </section>
-
 </body>
 </html>
