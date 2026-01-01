@@ -1,203 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZYNTRA – Apps</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZYNTRA – Apps</title>
+
+<style>
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+background:radial-gradient(circle at top,#0f172a,#020617);
+color:#fff;
+font-family:Arial,Helvetica,sans-serif;
+min-height:100vh;
+}
+
+.navbar{
+padding:20px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#1017254d;
+backdrop-filter:blur(10px);
+}
+
+.logo{
+font-size:24px;
+font-weight:bold;
+}
+
+.search-bar{
+padding:8px 12px;
+border-radius:6px;
+border:2px solid #5c5353;
+background:transparent;
+color:#fff;
+font-size:16px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:24px;
+max-width:1200px;
+margin:40px auto;
+padding:20px;
+}
+
+.card{
+background:rgba(13,19,32,0.35);
+border-radius:16px;
+padding:20px;
+text-align:center;
+backdrop-filter:blur(25px);
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+transition:transform .3s ease,background .3s ease;
+width:100%;
+}
+
+.card:hover{
+transform:translateY(-6px);
+background:#000000c0;
+}
+
+.card img{
+width:100px;
+height:100px;
+border-radius:14px;
+margin-bottom:14px;
+object-fit:cover;
+}
+
+.card h3{
+margin-bottom:6px;
+}
+
+.card p{
+font-size:14px;
+color:#cbd5f5;
+margin-bottom:12px;
+}
+
+.see-more{
+background:none;
+border:none;
+color:#38bdf8;
+cursor:pointer;
+font-size:16px;
+margin-bottom:10px;
+text-decoration:underline;
+}
+
+.btn.primary button{
+background:#22c55e;
+border:none;
+border-radius:8px;
+padding:10px 22px;
+font-size:14px;
+cursor:pointer;
+color:#020617;
+font-weight:600;
+}
+
+.btn.primary button:hover{
+background:#16a34a;
+}
+
+dialog{
+border:none;
+border-radius:18px;
+padding:26px;
+width:90%;
+max-width:420px;
+background:linear-gradient(145deg,rgba(15,23,42,.95),rgba(2,6,23,.95));
+color:#e5e7eb;
+box-shadow:0 25px 60px rgba(0,0,0,.7);
+margin: 100px auto;
+}
+
+dialog::backdrop{
+background:rgba(2,6,23,.75);
+backdrop-filter:blur(6px);
+}
+
+dialog h3{
+margin-bottom:10px;
+font-size:22px;
+}
+
+dialog p{
+font-size:14px;
+line-height:1.6;
+margin-bottom:6px;
+}
+
+dialog button{
+margin-top:18px;
+padding:10px 22px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+background:linear-gradient(135deg,#38bdf8,#22d3ee);
+font-weight:600;
+}
+
+@media(max-width:1024px){
+.cards{
+grid-template-columns:repeat(2,1fr);
+}
+}
+
+@media(max-width:768px){
+.navbar{
+flex-direction:column;
+gap:12px;
+}
+.cards{
+grid-template-columns:1fr;
+padding:16px;
+}
+.card img{
+width:90px;
+height:90px;
+}
+}
+
+</style>
 </head>
-<body class="bg-1">
-    <style>
 
-    .bg-1 {
-    background: radial-gradient(circle at top, #0f172a, #020617);
-    color: #fff;
-    min-height: 100vh;
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-}
-    
-    .navbar {
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #1017254d;
-    backdrop-filter: blur(10px);
-    font-family: Arial, Helvetica, sans-serif;
-    }
-    .logo {
-    font-size: 24px;
-    font-weight: bold;
-    
-}
-.search-bar {
-    padding: 8px 12px;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    background: transparent;
-    border: 2px solid #5c5353;
-    color: #fff;
-
-}   
-.search-bar:active{
-    outline: none;
-    border-color: #888;
-    border: 2px solid #ff0000;
-}
-    .search-bar::placeholder {
-    color: #ccc;
-    }
-    .cards {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
-    }
-  
-.card {
-    background-color: rgba(13, 19, 32, 0.089);
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-    padding: 20px;
-    text-align: center;
-
-    width: 100%;
-    backdrop-filter: blur(30px);
-
-    transition: transform 0.4s ease, background-color 0.4s ease;
-}
-
-    .card:hover {
-    transform: translateY(-6px);
-    transition: 0.8s ease;
-    background-color: #000000c0;
-    transition: background-color 0.9s ease;
-        }
-        .card img {
-    border-radius: 12px;
-    margin-bottom: 15px;
-        }
-      
-        
-
-    .card h3 {
-    color: #fff;
-    }
-    .card p {
-    color: #bababa;
-    }
-    .btn.primary button {
-    background-color: #17821b;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    }
-    .btn.primary button:hover {
-    background-color: #45a049;
-    }
-    dialog {
-  border: none;
-  border-radius: 18px;
-  padding: 28px 30px;
-  max-width: 420px;
-  width: 90%;
-  background: linear-gradient(
-    145deg,
-    rgba(15, 23, 42, 0.95),
-    rgba(2, 6, 23, 0.95)
-  );
-  color: #e5e7eb;
-  box-shadow:
-    0 25px 60px rgba(0, 0, 0, 0.7),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(20px);
-  animation: dialogOpen 0.45s ease forwards;
-}
-
-dialog::backdrop {
-  background: rgba(2, 6, 23, 0.75);
-  backdrop-filter: blur(6px);
-}
-
-dialog h3 {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 10px;
-  background: linear-gradient(90deg, #38bdf8, #22d3ee);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-dialog p {
-  font-size: 14px;
-  line-height: 1.6;
-  margin: 5px 0;
-  color: #cbd5f5;
-}
-
-dialog p strong {
-  color: #fff;
-}
-
-dialog p:last-of-type {
-  margin-top: 12px;
-}
-
-dialog button {
-  margin-top: 22px;
-  padding: 10px 22px;
-  border-radius: 10px;
-  border: none;
-  font-size: 14px;
-  font-weight: 600;
-  color: #020617;
-  background: linear-gradient(135deg, #38bdf8, #22d3ee);
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-dialog button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.45);
-}
-
-dialog button:active {
-  transform: translateY(0);
-  box-shadow: 0 6px 16px rgba(56, 189, 248, 0.35);
-}
-
-@keyframes dialogOpen {
-  from {
-    opacity: 0;
-    transform: scale(0.9) translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-    .see-more {
-        border: none;
-        background: transparent;
-        font-size: 18px;
-        color: #00acee;
-        cursor: pointer;
-        text-decoration: underline;
-    }
-    .see-more:active {
-        outline: none;
-        border-color: #888;
-        color: #ff0000;
-    }
-
-    </style>
-
+<body>
 <header class="navbar">
   <div class="logo">ZYNTRA</div>
   <div class="nav-right">
@@ -302,9 +277,6 @@ dialog button:active {
             <button>Download</button>
             </a>
         </div>
-
-        
-
 
     </div>
 </section>
